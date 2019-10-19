@@ -1,0 +1,70 @@
+﻿@model IEnumerable<FinalProject.Models.Review>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (User.IsInRole("Customer"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+    @*@if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+    {
+        <a asp-action="Approve">Approve Review</a>
+    }
+    @if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+    {
+        <a asp-action="Reject">Reject Review</a>
+    }*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewsWritten)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.ReviewsApproved)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewsWritten)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ReviewsApproved)
+            </td>*@
+            <td>
+
+                <a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
+
+                @if ((User.IsInRole("Manager")) || (User.IsInRole("Employee")))
+                {
+                    <a asp-action="Approve" asp-route-id="@item.ReviewID">Approve</a>
+                    <a asp-action="Reject" asp-route-id="@item.ReviewID">Reject</a>
+                }
+
+                     |
+
+                @*<a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a>*@
+
+            </td>
+        </tr>
+}
+    </tbody>
+    
+</table>

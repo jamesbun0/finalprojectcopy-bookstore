@@ -1,0 +1,131 @@
+﻿@model FinalProject.Models.Cart
+@using FinalProject.Models
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CartID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CartID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CartDate)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Products</h4>
+    <table class="table table-sm table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Extended Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CartDetail od in Model.CartDetails)
+            {
+            <tr>
+                @*@{Int32 bookid = od.Book.BookID}*@
+                <td>@Html.DisplayFor(modelItem => od.Book.Title)</td>
+                <td>@Html.DisplayFor(modelItem => od.Book.Price)</td>
+                <td>@Html.DisplayFor(modelItem => od.Quantity)</td>
+                <td>@Html.DisplayFor(modelItem => od.ExtendedPrice)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <table class="table table-sm table-bordered" style="width:30%">
+        <tr>
+            <th colspan="2" style="text-align:center">Order Summary</th>
+        </tr>
+        <tr>
+            <td>Order Subtotal</td>
+            <td>@Html.DisplayFor(r => r.CartSubtotal)</td>
+        </tr>
+        <tr>
+            <td>Sales tax (8.25%)</td>
+            <td>@Html.DisplayFor(r => r.Tax)</td>
+        </tr>
+        <tr>
+            <td>Order Total</td>
+            <td>@Html.DisplayFor(r => r.CartTotal)</td>
+        </tr>
+
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CartID">Edit</a> |
+    @*....CHECK OUT BUTTON..... <a asp-action="Checkout"> Checkout </a>*@
+    @*<a asp-action="Checkout" asp-route-id="@Model.CartID"> Checkout</a>*@
+    <a asp-action="Checkout" > Checkout</a>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+
+
+@*@model FinalProject.Models.Order
+
+    @{
+        ViewData["Title"] = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Order</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CartDate)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CartDate)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CartTotal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CartTotal)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Shipping)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Shipping)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.CartID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

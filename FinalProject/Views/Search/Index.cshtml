@@ -1,0 +1,81 @@
+﻿@model IEnumerable<FinalProject.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Index</h2>
+
+<form asp-action="Index" asp-controller="Search" method="get">
+    <p class="form-group">
+        Search: <input name="SearchString" class="form-control" /><br />
+        <button type="submit" class="btn btn-secondary">Search</button>
+        <a asp-action="DetailedSearch" class="btn btn-success">Detailed Search</a>
+        <a asp-action="Index" class="btn btn-danger">Show All</a>
+    </p>
+    <p>
+        Displaying @ViewBag.SelectedBooks out of @ViewBag.TotalBooks Books
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniqueID)
+            </th>
+            <th>
+                In Stock
+            </th>
+            <th>
+                Ratings
+                @*need for each loop for ratings that come from reviews class*@
+            </th>
+            <th></th>
+        </tr>
+
+    </thead>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>*@
+        <td>
+            <a asp-action="Details" asp-controller="Books" asp-route-id="@item.BookID"> @item.Title </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniqueID)
+        </td>
+        <td>
+            @*if CopiesOnHand > 0 then Yes... else No*@
+            @if (item.CopiesOnHand > 0)
+            {
+                <p>Yes</p>
+            }
+            else
+            {
+                <p> No </p>
+            }
+        </td>
+        @*@foreach(Review r in item.Reviews)
+        {
+            <td>
+            @r.Ratings
+            </td>
+        }
+            *@
+    </tr>
+    }
+</table>

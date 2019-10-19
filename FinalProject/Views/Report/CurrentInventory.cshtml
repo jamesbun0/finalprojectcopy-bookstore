@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FinalProject.Models.Book>
+@using FinalProject.Models;
+@{
+    ViewData["Title"] = "CurrentInventory";
+}
+
+<h2>Current Inventory</h2>
+
+<p>
+    Displaying @ViewBag.SelectedBooks Orders
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                BookTitle
+            </th>
+            <th>
+                Number of Books in Inventory
+            </th>
+            <th>
+                Average Cost of Each Book Title
+            </th>
+        </tr>
+
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesOnHand)
+            </td>
+            <td>
+                @ViewBag.AvgCostOfBooks
+            </td>
+        </tr>
+    }
+    </table>

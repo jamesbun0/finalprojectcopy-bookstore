@@ -1,0 +1,45 @@
+﻿@model FinalProject.Models.BookProcurement
+
+@{
+    ViewData["Title"] = "ManualReorder";
+}
+
+<h2>Manual Reorder</h2>
+
+<form asp-action="ManualReorder" asp-controller="BookProcurements" method="post">
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Book.BookID)
+        @Html.HiddenFor(model => model.BookProcurementID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                @*how do you display previous numbers in the textbox*@
+            </div>
+        </div>
+
+        <p>
+            Average Profit Margin = @ViewBag.ProfitMargin
+        </p>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Add Book to Reorder" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Totals";
+}
+
+<h2>Totals</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Total Profit
+            </th>
+            <th>
+                Total Revenue
+            </th>
+            <th>
+                Total Cost
+            </th>
+        </tr>
+
+    </thead>
+        <tr>
+            <td>
+                @ViewBag.Totals[0]
+            </td>
+            <td>
+                @ViewBag.Totals[1]
+            </td>
+            <td>
+                @ViewBag.Totals[2]
+            </td>
+        </tr>
+</table>
+
+

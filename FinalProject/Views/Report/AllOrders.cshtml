@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FinalProject.Models.Cart>
+@using FinalProject.Models;
+
+@{
+    ViewData["Title"] = "AllOrders";
+}
+
+<h2>All Orders Report</h2>
+
+<p>
+        Displaying @ViewBag.SelectedCarts Orders
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order Number
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Total Selling Price
+            </th>
+            <th>
+                Weighted Avg Cost
+            </th>
+            <th>
+                Profit Margin
+            </th>
+        </tr>
+
+    </thead>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CartTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvgWeightedCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfitMargin)
+        </td>
+    </tr>
+    }
+</table>
+
+

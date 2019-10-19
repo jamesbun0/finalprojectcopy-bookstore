@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<FinalProject.Models.AppUser>
+@using FinalProject.Models;
+@{
+    ViewData["Title"] = "AppRejReviews";
+}
+
+<h2>Approved & Rejected Reviews</h2>
+
+<p>
+    Displaying @ViewBag.SelectedUsers Orders
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee ID
+            </th>
+            <th>
+                Number of Approved Reviews
+            </th>
+            <th>
+                Number of Rejected Reviews
+            </th>
+        </tr>
+
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfReviewsApp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfReviewsRej)
+            </td>
+        </tr>
+    }
+</table>

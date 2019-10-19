@@ -1,0 +1,8 @@
+﻿@model FinalProject.Models.Review
+@{
+    ViewData["Title"] = "Reject";
+}
+<h2>Review Approved</h2>
+<form asp-action="Reject" asp-controller="Reviews" method="post">
+    <button type="submit" class="btn btn-danger">Reject</button>
+</form>

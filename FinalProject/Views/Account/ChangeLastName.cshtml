@@ -1,0 +1,47 @@
+﻿@using FinalProject.Models
+@model ChangeLastNameViewModel
+<h2>Change Last Name</h2>
+@using (Html.BeginForm("ChangeLastName", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ChangeLastName">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="NewLastName" class="control-label"></label>
+                    <input asp-for="NewLastName" class="form-control" />
+                    <span asp-validation-for="NewLastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@*{
+        @Html.AntiForgeryToken()
+
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.OldLastName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.OldLastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NewLastName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.NewLastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Change last name" class="btn btn-default" />
+            </div>
+        </div>
+    }*@

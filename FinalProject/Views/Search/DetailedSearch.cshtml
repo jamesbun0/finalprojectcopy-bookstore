@@ -1,0 +1,65 @@
+﻿@using FinalProject.Controllers
+@{
+    ViewBag.Title = "Detailed Search";
+}
+
+<h2>Book Search</h2>
+@* Create a form that generates a get request and calls the DisplaySearchResults action in the home controller - sends data to the home controller *@
+<form asp-action="DisplaySearchResults" asp-controller="Search" method="get">
+    <div class="form-group">
+        <label>Book Title:</label>
+        @*captures input from user and stores it as SearchString which gets passed to the DisplaySearchResults action*@
+        @*name of controls correspond to parameters in your action method signature*@
+        <input name="TitleString" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Author:</label>
+        <input name="AuthorString" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label> Unique Number:</label>
+        <input name="UniqueNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Choose a Genre:</label>
+        @Html.DropDownList("SelectedGenre", (SelectList)ViewBag.AllGenres, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Filter Your Search: </label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedTitleFilter", TitleFilter.Ascending)Ascending by Title</label>
+        <label class="radio">@Html.RadioButton("SelectedTitleFilter", TitleFilter.Descending)Descending by Title</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedAuthorFilter", AuthorFilter.Ascending)Ascending by Author</label>
+        <label class="radio">@Html.RadioButton("SelectedAuthorFilter", AuthorFilter.Descending)Descending by Author</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedPopularityFilter", PopularityFilter.Descending)Sort by Popularity</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedDateFilter", DateFilter.Newest)Sort by Newest</label>
+        <label class="radio">@Html.RadioButton("SelectedDateFilter", DateFilter.Oldest)Sort by Oldest</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedRatingFilter", RatingFilter.Descending)Sort by Highest Rated</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedStockFilter", StockFilter.True)Filter by Books in Stock</label>
+    </div>
+
+
+    <button type="submit" class="btn btn-danger">Search</button>
+</form>
+

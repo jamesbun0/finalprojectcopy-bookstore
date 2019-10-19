@@ -1,0 +1,73 @@
+﻿@*
+    @model IEnumerable<FinalProject.Models.BookProcurement>
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subtotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Total)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProcurementDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserID)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subtotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProcurementDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BookProcurementID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BookProcurementID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BookProcurementID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+*@
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Book Procurement</h2>
+<form asp-action="Index" method="get">
+    <p class="form-group">
+        <a asp-action="Index" asp-controller="Search" class="btn btn-primary">Manual</a>
+        <a asp-action="Index" asp-controller="Books" class="btn btn-primary">Automatic</a>
+
+    </p>
+</form>

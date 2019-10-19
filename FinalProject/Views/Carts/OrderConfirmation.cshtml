@@ -1,0 +1,39 @@
+﻿@using FinalProject.Models
+@{
+    ViewData["Title"] = "OrderConfirmation";
+}
+<h2>Order Confirmation</h2>
+<p>~ Thanks for shopping at Bevo Books ~</p>
+
+
+<h3>Recommendations</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Recommendation 1
+            </th>
+            <th>
+                Recommendation 2
+            </th>
+            <th>
+                Recommendation 3
+            </th>
+        </tr>
+
+    </thead>
+
+        <tr>
+            <td>
+                @ViewBag.Recommendations[0]
+            </td>
+            <td>
+                @ViewBag.Recommendations[1]
+            </td>
+            <td>
+                @ViewBag.Recommendations[2]
+            </td>
+        </tr>
+    
+</table>
+

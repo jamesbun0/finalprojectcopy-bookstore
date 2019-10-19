@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\RoleAdmin\" />
+    <Folder Include="Views\Test\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20181206215730_avgweightedproperties.cs" />
+    <Compile Remove="Migrations\20181205193008_Init.Designer.cs" />
+    <Compile Remove="Migrations\20181205193008_Init.cs" />
+    <Compile Remove="Migrations\20181205214947_UpdatedBooks.Designer.cs" />
+    <Compile Remove="Migrations\20181205214947_UpdatedBooks.cs" />
+    <Compile Remove="Migrations\20181207003921_sorrymycomputersucks.cs" />
+    <Compile Remove="Migrations\20181207003921_sorrymycomputersucks.Designer.cs" />
+    <Compile Remove="Migrations\20181207002822_updatedcartnumber.Designer.cs" />
+    <Compile Remove="Migrations\20181207002822_updatedcartnumber.cs" />
+    <Compile Remove="Migrations\20181207014048_InitialCreate.cs" />
+  </ItemGroup>
+</Project>

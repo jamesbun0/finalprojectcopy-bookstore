@@ -1,0 +1,51 @@
+﻿@using FinalProject.Models
+@model ChangeEmailViewModel
+<h2>Change Email</h2>
+@using (Html.BeginForm("ChangeEmail", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ChangeEmail">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="OldEmail" class="control-label"></label>
+                    <input asp-for="OldEmail" class="form-control" />
+                    <span asp-validation-for="OldEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NewEmail" class="control-label"></label>
+                    <input asp-for="NewEmail" class="form-control" />
+                    <span asp-validation-for="NewEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@*{
+        @Html.AntiForgeryToken()
+
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.OldEmail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.OldEmail, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NewEmail, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.NewEmail, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Change email" class="btn btn-default" />
+            </div>
+        </div>
+    }*@

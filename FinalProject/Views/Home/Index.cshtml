@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (User.IsInRole("Customer"))
+{
+    <h3> FREE SHIPPING ON ORDERS OVER $50 W/ COUPON CODE: FREESHIPPING</h3>
+}
+<form asp-action="Index" method="get">
+    <p class="form-group">
+        <a asp-action="Index" asp-controller="Search" class="btn btn-primary">Search</a>
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-action="Index" asp-controller="Books" class="btn btn-primary">Books</a>
+        }
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-primary">Manage Users</a>
+        }
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-action="Index" asp-controller="Reviews" class="btn btn-primary">Review</a>
+        }
+
+        @if (User.IsInRole("Manager"))
+        {
+            <a asp-action="Index" asp-controller="BookProcurements" class="btn btn-primary">Book Procurement</a>
+            <a asp-action="Index" asp-controller="Report" class="btn btn-primary">Reports</a>
+        }
+
+        <a asp-action="Index" asp-controller="Coupons" class="btn btn-primary">Coupon</a>
+
+
+
+    </p>
+</form>

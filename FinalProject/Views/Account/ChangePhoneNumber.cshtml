@@ -1,0 +1,46 @@
+﻿@using FinalProject.Models
+@model ChangePhoneNumberViewModel
+<h2>Change Phone Number</h2>
+@using (Html.BeginForm("ChangeEmail", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+{
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ChangePhoneNumber">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NewPhoneNumber" class="control-label"></label>
+                    <input asp-for="NewPhoneNumber" class="form-control" />
+                    <span asp-validation-for="NewPhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+@*{
+        @Html.AntiForgeryToken()
+        <h4>Change Password Form</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.OldPhoneNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.OldPhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NewPhoneNumber, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.NewPhoneNumber, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Change phone number" class="btn btn-default" />
+            </div>
+        </div>
+    }*@

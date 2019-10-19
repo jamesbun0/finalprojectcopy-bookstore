@@ -1,0 +1,99 @@
+﻿@model IEnumerable<FinalProject.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @*only managers can create books*@
+    <a asp-action="Create">Create New Book</a> |
+    <a asp-action="Create" asp-controller="Genres"> Create New Genre</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.PublishedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UniqueID)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reorder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CopiesOnHand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastOrdered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.PublishedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UniqueID)
+            </td>*@
+            <td>
+               @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reorder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesOnHand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastOrdered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>*@
+            <td>
+                @*only managers can edit*@
+                <a asp-action="Edit" asp-route-id="@item.BookID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookID">Details</a> |
+                @*only managers can delete*@
+                <a asp-action="Delete" asp-route-id="@item.BookID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

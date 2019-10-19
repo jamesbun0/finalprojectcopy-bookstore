@@ -1,0 +1,87 @@
+﻿@using FinalProject.Controllers
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Reports</h2>
+<br />
+<br />
+
+@* Create a form that generates a get request and calls the DisplaySearchResults action in the home controller - sends data to the home controller *@
+<form asp-action="ReportFilter" asp-controller="Report" method="post">
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.AllBooksSold)All Books Sold</label>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.AllOrders)All Orders</label>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.AllCustomers)All Customers</label>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.Totals) Totals</label>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.CurrentInventory)Current Inventory</label>
+        <label class="radio">@Html.RadioButton("SelectedTypeOfReport", TypeOfReport.AppRejReviews)Approved Reviews</label>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Filter Your Report: </label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.MostRecent)Most Recent</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.ProfitMarginA)Ascending by Profit Margin</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.ProfitMarginD)Descending by Profit Margin</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.PriceA)Ascending by Price</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.PriceD)Descending by Price</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.MostPopular)Most Popular</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.AmountofRevA)Ascending by Amount of Revenue</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.AmountofRevB)Descending by Amount of Revenue</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.EmployeeIDA)Ascending by Employee ID</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.EmployeeIDD)Descending by Employee ID</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.AppReviewsA)Ascending by Approved Reviews</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.AppReviewsD)Descending by Approved Reviews</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.RejReviewsA)Ascending by Rejected Reviews</label>
+        <label class="radio">@Html.RadioButton("SelectedFilter", Filter.RejReviewsD)Descending by Rejected Reviews</label>
+    </div>
+
+    @*<div>
+        <label class="radio">@Html.RadioButton("SelectedMostRecentFilter", MostRecentFilter.Ascending)Most Recent</label>
+        <label class="radio">@Html.RadioButton("SelectedMostRecentFilter", MostRecentFilter.Descending)Latest</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedProfitMarginFilter", ProfitMarginFilter.Ascending)Ascending by Profit Margin</label>
+        <label class="radio">@Html.RadioButton("SelectedProfitMarginFilter", ProfitMarginFilter.Descending)Descending by Profit Margin</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedPriceFilter", PriceFilter.Ascending)Ascending by Price</label>
+        <label class="radio">@Html.RadioButton("SelectedPriceFilter", PriceFilter.Descending)Descending by Price</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedMostPopularFilter", MostPopularFilter.Descending)Sort by Popularity</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedAmountOfRevenueFilter", AmountOfRevenueFilter.Ascending)Ascending by Amount Of Revenue</label>
+        <label class="radio">@Html.RadioButton("SelectedAmountOfRevenueFilter", AmountOfRevenueFilter.Descending)Descending by Amount Of Revenue</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedEmployeeIDFilter", EmployeeIDFilter.Ascending)Ascending by Employee ID</label>
+        <label class="radio">@Html.RadioButton("SelectedEmployeeIDFilter", EmployeeIDFilter.Descending)Descending by Employee ID</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedApprovedReviewsFilter", ApprovedReviewsFilter.Ascending)Ascending by Approved Reviews</label>
+        <label class="radio">@Html.RadioButton("SelectedApprovedReviewsFilter", ApprovedReviewsFilter.Descending)Descending by Approved Reviews</label>
+    </div>
+
+    <div>
+        <label class="radio">@Html.RadioButton("SelectedRejectedReviewsFilter", RejectedReviewsFilter.Ascending)Ascending by Rejected Reviews</label>
+        <label class="radio">@Html.RadioButton("SelectedRejectedReviewsFilter", RejectedReviewsFilter.Descending)Descending by Rejected Reviews</label>
+    </div>*@
+
+
+    <button type="submit" class="btn btn-danger">Show Report</button>
+</form>
+

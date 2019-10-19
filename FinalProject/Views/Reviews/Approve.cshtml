@@ -1,0 +1,54 @@
+﻿@model FinalProject.Models.Review
+
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h2>Review Approved</h2>
+
+<form asp-action="Approve" asp-controller="Reviews" method="post">
+    <button type="submit" class="btn btn-danger">Approve</button>
+</form>
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ReviewsWritten)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.ReviewsApproved)
+                    </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReviewsWritten)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ReviewsApproved)
+                        </td>
+                    <td>
+                        @*only employees can edit, but only the text
+                        @*<a asp-action="Edit" asp-route-id="@item.ReviewID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ReviewID">Details</a> |
+
+                        <a asp-action="Delete" asp-route-id="@item.ReviewID">Delete</a> |
+                        <input type="submit" value="Approve" class="btn btn-default" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+*@

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FinalProject.Models.CartDetail>
+@using FinalProject.Models;
+
+@{
+    ViewData["Title"] = "AllBooksSold";
+}
+
+<h2>All Books Sold Report</h2>
+
+<p>
+        Displaying @ViewBag.SelectedCartDetails Books
+    </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book Title
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Order Number
+            </th>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Selling Price
+            </th>
+            <th>
+                Weighted Avg Cost
+            </th>
+            <th>
+                Profit Margin
+            </th>
+        </tr>
+
+    </thead>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            <a asp-action="Details" asp-controller="Books" asp-route-id="@item.Book.BookID"> @item.Book.Title </a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cart.CartID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.AvgWeightedCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.ProfitMargin)
+        </td>
+    </tr>
+    }
+</table>

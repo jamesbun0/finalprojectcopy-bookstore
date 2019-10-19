@@ -1,0 +1,62 @@
+﻿@model IEnumerable<FinalProject.Models.AppUser>
+@using FinalProject.Models;
+
+@{
+    ViewData["Title"] = "All Customers";
+}
+
+<h2>All Customers</h2>
+
+<p>
+        Displaying @ViewBag.SelectedCustomers Customers
+    </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Customer Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Total Quantity
+            </th>
+            <th>
+                Total Revenue
+            </th>
+            <th>
+                Total Weighted Avg Cost
+            </th>
+            <th>
+                Profit Margin
+            </th>
+        </tr>
+
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalBooksPurchased)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountOfRevenue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgWeightedCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfitMargin)
+            </td>
+        </tr>
+    }
+</table>
